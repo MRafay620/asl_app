@@ -1,0 +1,60 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+android {
+    namespace = "com.example.asl_app"
+    compileSdkVersion 34 // Explicit compileSdkVersion
+    ndkVersion "21.3.6528147" // Example ndkVersion, update as needed
+
+    defaultConfig {
+        applicationId "com.example.asl_app"
+        minSdkVersion 23 // Explicit minSdkVersion
+        targetSdkVersion 33 // Explicit targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+
+        // Ensure compatibility with older Android versions
+        multiDexEnabled true
+    }
+
+    buildTypes {
+        release {
+            // Enable code shrinking, obfuscation, and resource shrinking
+            minifyEnabled true // This enables ProGuard
+            shrinkResources true // This enables resource shrinking
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            // Use your own signing config instead of debug signing
+            // signingConfig signingConfigs.release
+        }
+        debug {
+            // Keep code shrinking and resource shrinking disabled in debug builds
+            minifyEnabled false
+            shrinkResources false
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+flutter {
+    source = "../.."
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
