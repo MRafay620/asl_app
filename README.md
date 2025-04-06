@@ -3,7 +3,7 @@
 
 ## Getting Started
 
-https://github.com/user-attachments/assets/67e7f750-b2ad-426a-9f31-35f18117ec8e
+![Image](https://github.com/user-attachments/assets/755cd239-c90a-429d-a8d4-d179d1e8e4df)
 
 This project is a starting point for a Flutter application.
 
